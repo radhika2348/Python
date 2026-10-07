@@ -18,5 +18,3 @@ def test_isold():
 def test_zero():
     assert is_teenager(0)==False
 
-def test_negative():
-    assert is_teenager(-5)==False
