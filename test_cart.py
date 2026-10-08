@@ -1,16 +1,18 @@
+import random
+import sys
+
 from cart import cartCal
 
-def test_delivery():
-    assert cartCal(500)==500
 
-def test_Addfee():
-    assert cartCal(400)==450
+def test_cart_between_0_to_499_adds_50():
+    cart = random.randint(0, 499)
+    assert cartCal(cart) == cart + 50
 
-def test_Addfee1():
-    assert cartCal(600)==600
 
-def test_fee2():
-    assert cartCal(499)==549
+def test_cart_between_500_to_max_integer_stays_same():
+    cart = random.randint(500, sys.maxsize)
+    assert cartCal(cart) == cart
 
-def test_fee3():
-    assert cartCal(100)==150
+
+def test_cart_exactly_500():
+    assert cartCal(500) == 500
